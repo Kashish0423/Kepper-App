@@ -6,8 +6,8 @@ function Note(props) {
 
 
 
-  if (props.title!=undefined)
-  { 
+  // if (props.title!=undefined)
+  // { 
     return (
 
     
@@ -21,11 +21,11 @@ function Note(props) {
       </div>
     );
 
-  }
+  
 
-else{
-  return null ;
-}
+// else{
+//   return null ;
+// }
  
   
 }

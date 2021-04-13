@@ -8,7 +8,7 @@ function App() {
 
  
 
- const [items, setItems]= React.useState([{}]) ;
+ const [items, setItems]= React.useState([]) ;
 
  //const [work, setWork] = React.useState([]) ;
 
