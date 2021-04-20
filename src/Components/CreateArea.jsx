@@ -1,47 +1,68 @@
-import React from "react";
-//import { isPropertySignature } from "typescript";
+import React, { useState } from "react";
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
+import Zoom from '@material-ui/core/Zoom';
+
 
 function CreateArea(props) {
+  const [note, setNote] = useState({
+    title: "",
+    content: ""
+  });
 
 
-  const[inputText, setInputText]= React.useState("") ;
+  const [isExpand, setExpand]= useState(false) ;
 
-  const[areaText, setAreaText]= React.useState("") ;
+  function handleChange(event) {
+    const { name, value } = event.target;
 
+    setNote(prevNote => {
+      return {
+        ...prevNote,
+        [name]: value
+      };
+    });
+  }
 
-  function handleChange(event){
-   
-    
-   // console.log(event.target.value) ;
-
-    setInputText(event.target.value) ;
+  function submitNote(event) {
+    props.onAdd(note);
+    setNote({
+      title: "",
+      content: ""
+    });
+    event.preventDefault();
   }
 
 
-  function NoteChange(event){
+  function handleClick(){
 
-   // console.log(event.target.value) ;
-    setAreaText(event.target.value) ;
+    setExpand(true) ;
   }
-
-
-  function handleSubmit(event){
-
-    //console.log(inputText) ;
-    props.add({inputText,areaText}) ;
-    setInputText("") ;
-    setAreaText("") ;
- event.preventDefault() ;
-
-  }
-
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} name= "title" type="text"  placeholder="Title" value={inputText} />
-        <textarea onChange={NoteChange} name="content" value= {areaText} placeholder="Take a note..." rows="3" />
-        <button >Add</button>
+      <form className="create-note">
+
+      {isExpand?<input
+          name="title"
+          onChange={handleChange}
+          value={note.title}
+          placeholder="Title"
+        /> :null}
+        
+        <textarea
+          name="content"
+          onChange={handleChange}
+          onClick= {handleClick} 
+          value={note.content}
+          placeholder="Take a note..."
+          rows={isExpand?3:1}
+        />
+        <Zoom in={isExpand}>
+
+        <Fab onClick={submitNote}><AddIcon/></Fab>
+        </Zoom>
+        
       </form>
     </div>
   );

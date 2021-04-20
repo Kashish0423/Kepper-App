@@ -1,33 +1,18 @@
 import React from "react";
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function Note(props) {
+  function handleClick() {
+    props.onDelete(props.id);
+  }
 
-  // console.log(props) ;
-
-
-
-  // if (props.title!=undefined)
-  // { 
-    return (
-
-    
-
-      <div className="note">
-        <h1>{props.title}</h1>
-        <p>{props.content}</p>
-        <button onClick={()=>{
-       props.onChecked(props.id);
-        }}>DELETE</button>
-      </div>
-    );
-
-  
-
-// else{
-//   return null ;
-// }
- 
-  
+  return (
+    <div className="note">
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+      <button onClick={handleClick}><DeleteIcon/></button>
+    </div>
+  );
 }
 
 export default Note;
