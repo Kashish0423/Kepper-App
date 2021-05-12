@@ -2,6 +2,9 @@
   "name": "using-pre-built-react-components",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "14.16.0"
+  },
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
