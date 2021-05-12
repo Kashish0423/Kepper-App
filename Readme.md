@@ -1,4 +1,4 @@
-# GoogleKeep ReactJs Clone
+# GoogleKeep Clone ReactJs
 
 > Google Keep Clone Frontend Only Application made using ReactJS
 
@@ -11,7 +11,7 @@
 
 ## Usage
 
-### Install Dependencies (frontend)
+### Install Dependencies
 
 ```
 npm install
@@ -27,3 +27,15 @@ npm start to run the app on PORT 3000
 ```
 
 Snapshots of the project 👇
+
+The full overview of the App
+<img src="Snapshots/App.png" alt="App">
+
+Add Note to your App
+<img src="Snapshots/Steps.png" alt="Steps to Add Note">
+
+Add Multiple Notes to Your App
+<img src="Snapshots/MultipleNotes.png" alt="MultipleNotes">
+
+Delete your notes from the App
+<img src="Snapshots/DeleteNote.png" alt="Delete Note">
